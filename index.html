@@ -1318,11 +1318,67 @@
     crossorigin="anonymous"></script>
 <script>
 // TAGS HARDCODED
+// 1 Quantos rolaram a página até o final?
+
 window.addEventListener('scroll', function() {
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
     gtag('event', 'scrolled_to_end', {});
   }
 });
+
+// 2 Quantos visualizaram o formulário de contato?
+
+var form = document.getElementById('contactForm');
+
+var formObserver = new IntersectionObserver(function (entries) {
+ if (entries[0].isIntersecting) {
+   gtag('event', 'view_form', { });
+ }
+});
+formObserver.observe(form)
+
+// 3 Quantos começaram a preencher o formulário de contato e por qual input do formulário?
+questionar se eu posso fazer isso
+
+var form = document.getElementById('contactForm');
+var formCampos = form.querySelectorAll('input, textarea');
+var primeiroCampoPreenchido = false;
+
+formCampos.forEach(function(campo) {
+  campo.addEventListener('mousedown', function() {
+    if (!primeiroCampoPreenchido) {
+      gtag('event', 'input_start_form', {
+        'input_start_name': campo.id
+      });
+      primeiroCampoPreenchido = true;
+    }
+  });
+});
+
+// 5 Quantas pessoas interagiram com o menu superior?
+
+var menuOptions = document.querySelectorAll('ul.nav.navbar-nav.navbar-right > li');
+
+menuOptions.forEach(function(option) {
+  option.addEventListener('click', function() {
+    gtag('event', 'menu_itens', {
+      'menu_click': option.id
+    });
+  });
+});
+
+// 8 O pop-up com o telefone apareceu na página? Note que ele aparecer na página não configura uma não-rejeição do usuário.
+
+var telefonePopUp = document.querySelector('#call-me-baby');
+
+var popup = new IntersectionObserver(function(entries) {
+  if (entries[0].isIntersecting) {
+    gtag('event', 'view_popup', { });
+  }
+});
+
+popup.observe(telefonePopUp);
+
 
 
 </script>
