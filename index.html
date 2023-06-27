@@ -23,7 +23,15 @@
     rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&display=swap" rel="stylesheet"
     type="text/css" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W4TPKRHEW9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-W4TPKRHEW9');
+</script>
   <!-- Theme CSS -->
   <style>
     body {
@@ -1308,11 +1316,20 @@
   <!-- Plugin JavaScript -->
   <script src="assets/jquery.easing.min.js"
     crossorigin="anonymous"></script>
+<script>
+// TAGS HARDCODED
+window.addEventListener('scroll', function() {
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    gtag('event', 'scrolled_to_end', {});
+  }
+});
 
 
+</script>
     <script>
       // ---------  Documentação ------------
-      // Documentação que ajudou na resolução de alguns exercicios do TAG TRAINER, coloquei aqui em cima para não deixar os códigos muito poluidos.
+      // Documentação que ajudou na resolução de alguns exercicios do TAG TRAINER
+      // Coloquei aqui em cima para não deixar os códigos muito poluidos.
       //
       // Exercicio 4) 
       // Linha 1335 -> data_input_element.addEventListener('change', function(event) { // parâmetro change modos de uso https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
@@ -1377,7 +1394,7 @@
             // 6) Executar console.log("Clicou no menu <nome do menu>") quando o usuário clicar em cada uma das opções do menu superior (serviços, contato)
         
             document.querySelector('a[href="#services"]').addEventListener("click", () => {
-              console.log("Clicou no menu Serviços");
+              console.log("Clicou no menu Serviços"); 
             });
             document.querySelector('a[href="#contact"]').addEventListener("click", () => {
               console.log("Clicou no menu Contato");
@@ -1392,8 +1409,7 @@
             document.querySelector('a[href="#team"]').addEventListener("click", () => {
               console.log("Clicou no menu Equipe");
             });
-        
-        
+
         
             //  7) executar console.log("Visualizou o banheiro") sempre que a imagem banheiro.webp (seção "Sobre) ficar visivel no viewport     [Ok]
             const observer_entries_bath = new IntersectionObserver((entries) => { // Cria um observador
@@ -1417,6 +1433,7 @@
 
             // ------------- END Exercicios -------------
     </script>
+
 
   <script>
     (function ($) {
